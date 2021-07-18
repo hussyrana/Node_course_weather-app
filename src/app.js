@@ -6,7 +6,10 @@ const forecast = require('./utils/forecast');
 
 
 const app = express();
-app.listen(3000);
+const port = process.env.PORT || 3000;
+app.listen(port, ()=>{
+    console.log('Server is up on port '+port);
+});
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, '../public')));
 app.set('views', path.join(__dirname, '../templates/views'));
